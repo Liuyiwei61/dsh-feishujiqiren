@@ -68,9 +68,59 @@ bot 通过 DSH 的移动 API 网关工作，有三个**必须遵守**的机制�
 - 共享会话：飞书指令注入当前活跃会话，GUI 正忙时指令会排队
 - 确认卡选项 ≤5 个用按钮，更多退化为文字
 
-## 📄 License
+## 👤 作者与致谢
 
-MIT
+- **作者**：[Liuyiwei61](https://github.com/Liuyiwei61)
+- **致谢**：
+  - [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) —— Agent 框架本体
+  - [zhu1090093659 / @linxin666 dsh-web-ui](https://github.com/zhu1090093659/dsh-web-ui) —— `dsh-remote-web-ui` 插件（bot 复用了它的移动 API 网关 `/m/api` 与审批应答 `/api/respond`，本项目的功能基础）
+  - 飞书开放平台 —— 长连接机器人能力（免费）
+
+## 📄 许可证
+
+**MIT License**
+
+```text
+MIT License
+
+Copyright (c) 2026 Liuyiwei61
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+依赖项许可：`@larksuiteoapi/node-sdk`（Apache-2.0），见其自身 LICENSE。
+
+## 📜 免责声明
+
+本项目用于**管理你自己的 DeepSeek Harness 实例**。使用本软件即表示你同意：
+
+1. **审批/确认卡片会远程放行高风险操作**（如执行命令、修改文件）。请仅在可信环境中使用，并对你的飞书应用可用范围、App Secret、配对 cookie 的保密负全部责任；
+2. 本项目按"现状"提供，作者不对因使用本软件造成的任何数据丢失、系统损坏或安全问题负责；
+3. 本项目与飞书/DeepSeek 官方无隶属关系。
+
+## 🗒️ 更新日志
+
+- **1.0.0**：首个发布。指令注入、审批卡片（批准/拒绝）、⚡CONFIRM 选择确认卡、完整回复回推（含会话标题）、每小时摘要、SSE 事件流订阅（rpcId 映射）、一键部署脚本与完整文档。
+
+## 🧹 关于"远程访问方案"的说明
+
+本仓库**不包含**任何内网穿透/公网隧道方案（如花生壳、Cloudflare 隧道、frp 等）——飞书机器人走**纯出站长连接**，天然不需要这些。若要浏览器远程访问 DSH 桌面 UI，请单独使用 `dsh-remote-web-ui` 插件（见上游文档）。
 
 ---
 
