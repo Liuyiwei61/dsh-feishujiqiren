@@ -1,0 +1,8 @@
+{
+  "appId": "REPLACE_WITH_YOUR_APP_ID",
+  "appSecret": "REPLACE_WITH_YOUR_APP_SECRET",
+  "dshBase": "http://127.0.0.1:3080",
+  "defaultWorkspace": null,
+  "commandPrefix": "dsh",
+  "replyInChat": true
+}

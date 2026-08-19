@@ -1,0 +1,10 @@
+{
+  "name": "dsh-feishu-bot",
+  "version": "1.0.0",
+  "description": "Feishu remote control for DeepSeek Harness: commands, approval cards, confirm cards, progress push. Long-connection based, no public server needed.",
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "@larksuiteoapi/node-sdk": "^1.40.0"
+  }
+}
