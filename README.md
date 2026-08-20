@@ -23,7 +23,42 @@
 2. **remote-web-ui 插件**（`@linxin666/dsh-remote-web-ui`）——bot 复用它的移动 API（`/m/api`）和审批应答（`/api/respond`）
 3. **飞书开放平台自建应用**（免费，个人可注册）
 
-## 🚀 快速开始
+## 🧩 版本方案
+
+| 版本 | 方案 | 适用场景 | 安装方式 |
+|---|---|---|---|
+| **v1.1.0** | **插件部署**（推荐） | DSH 桌面版/常规使用 | DSH 插件随启随停，免 systemd |
+| **v1.0.0** | 自行部署 | 独立进程 / 无 DSH 插件体系 | `install.sh` + systemd |
+
+两个方案共用同一套 `bot.mjs` 逻辑与飞书应用配置，按需二选一。
+
+---
+
+## 🚀 快速开始（v1.1.0 插件部署，推荐）
+
+> 要求：DeepSeek Harness 桌面版/web 版，已安装 `dsh-remote-web-ui` 插件。
+
+```bash
+# 1. 克隆并装依赖
+git clone <your-repo-url>
+cd dsh-feishu-bot
+npm install
+
+# 2. 配置飞书凭据
+cp config.example.json config.json
+vi config.json              # 填入 App ID / App Secret（勿提交，已被 gitignore）
+
+# 3. 按 docs/feishu-setup.md 完成飞书开放平台配置（10-20分钟，一次性）
+
+# 4. 作为 DSH 插件安装（随 DSH 启停，崩溃自动重启）
+dsh plugin --profile web add "$PWD"
+
+# 5. 重启 DSH → 插件自动拉起 bot → 飞书长连接建立
+```
+
+**说明**：插件壳（`lib/index.js`）托管 `bot.mjs` 子进程——DSH 启动时自动拉起，退出时自动停止，子进程崩溃 5 秒后自动重启。卸载：`dsh plugin remove dsh-feishu-bot`。
+
+## 🚀 快速开始（v1.0.0 自行部署）
 
 ```bash
 git clone <your-repo-url>
@@ -116,6 +151,7 @@ SOFTWARE.
 
 ## 🗒️ 更新日志
 
+- **1.1.0**：**插件部署方案**——新增 DSH 插件壳（`lib/index.js` 托管 bot 子进程，随 DSH 启停、崩溃自动重启、`dsh plugin add` 一键安装）；README 拆分双版本方案。
 - **1.0.0**：首个发布。指令注入、审批卡片（批准/拒绝）、⚡CONFIRM 选择确认卡、完整回复回推（含会话标题）、每小时摘要、SSE 事件流订阅（rpcId 映射）、一键部署脚本与完整文档。
 
 ## 🧹 关于"远程访问方案"的说明

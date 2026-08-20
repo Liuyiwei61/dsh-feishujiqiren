@@ -1,0 +1,4 @@
+# dsh-feishu-bot bundle patch: inserts its plugin row into the web profile roster.
+- insert:
+    - id: dsh-feishu-bot
+      name: 'dsh-feishu-bot'

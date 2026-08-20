@@ -1,9 +1,18 @@
 {
   "name": "dsh-feishu-bot",
-  "version": "1.0.0",
-  "description": "Feishu remote control for DeepSeek Harness: commands, approval cards, confirm cards, progress push. Long-connection based, no public server needed.",
+  "version": "1.1.0",
+  "description": "Feishu remote control for DeepSeek Harness: commands, approval cards, confirm cards, progress push. DSH plugin (spawns the bridge as a managed child).",
   "type": "module",
   "license": "MIT",
+  "main": "lib/index.js",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
   "dependencies": {
     "@larksuiteoapi/node-sdk": "^1.40.0"
   }
