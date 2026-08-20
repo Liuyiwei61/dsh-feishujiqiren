@@ -40,7 +40,7 @@
 
 ```bash
 # 1. 克隆并装依赖
-git clone <your-repo-url>
+git clone https://github.com/Liuyiwei61/dsh-feishujiqiren.git
 cd dsh-feishu-bot
 npm install
 
@@ -61,7 +61,7 @@ dsh plugin --profile web add "$PWD"
 ## 🚀 快速开始（v1.0.0 自行部署）
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Liuyiwei61/dsh-feishujiqiren.git
 cd dsh-feishu-bot
 bash install.sh          # 装依赖 + 生成配置 + 注册 systemd 服务
 
